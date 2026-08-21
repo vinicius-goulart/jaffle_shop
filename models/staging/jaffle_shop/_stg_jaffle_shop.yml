@@ -1,18 +1,23 @@
 models:
   - name: stg_jaffle_shop__customers
+    description: one unique customer per row
     columns:
       - name: customer_id
+        description: primary key
         data_tests:
           - unique
           - not_null
 
   - name: stg_jaffle_shop__orders
+    description: one unique order per row
     columns:
       - name: order_id
+        description: primary key
         data_tests:
           - unique
           - not_null
       - name: order_status
+        description: The status of the order
         data_tests:
         - accepted_values:
             arguments:
@@ -23,6 +28,7 @@ models:
                 - placed
                 - return_pending
       - name: customer_id
+        description: foreign key for the customer that made the order
         data_tests:
           - relationships:
               arguments:
