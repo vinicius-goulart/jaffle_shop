@@ -1,9 +1,11 @@
 sources:
   - name: jaffle_shop
+    description: A clone of a Postgres database
     database: dbt-tutorial
     schema: jaffle_shop
     tables:
       - name: customers
+        description: Raw customers data
         columns:
           - name: id
             description: primary key
@@ -12,9 +14,10 @@ sources:
               - not_null
               
       - name: orders
+        description: Raw orders data
         columns:
           - name: id
-            description: primary keys
+            description: primary key
             data_tests:
               - unique
               - not_null
