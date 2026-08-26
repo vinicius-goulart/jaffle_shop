@@ -1,0 +1,45 @@
+models:
+  - name: stg_stripe__payment
+    description: Staging model that cleanses and standardizes raw Stripe payment data.
+    columns:
+      - name: payment_id
+        description: Primary key for each payment transaction.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: order_id
+        description: Foreign key linking the payment to an order.
+        data_tests:
+          - not_null
+
+      - name: payment_method
+        description: "{{ doc('payment_method') }}"
+        data_tests:
+        - accepted_values:
+            arguments:
+              values:
+                - credit_card
+                - bank_transfer
+                - coupon
+                - gift_card
+
+      - name: payment_status
+        description: Current status of the transaction (e.g., success, fail).
+        data_tests:
+          - not_null
+
+      - name: payment_amount
+        description: The payment amount (typically stored in cents).
+        data_tests:
+          - not_null
+
+      - name: payment_created
+        description: Timestamp indicating when the payment was initiated.
+        data_tests:
+          - not_null
+
+      - name: _batched_at
+        description: Timestamp recorded when the row was ingested by the ETL process.
+        data_tests:
+          - not_null
