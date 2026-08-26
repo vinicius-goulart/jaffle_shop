@@ -4,6 +4,7 @@ sources:
     schema: stripe
     tables:
       - name: payment
+        description: Raw payment transactions from Stripe.
         config: 
           loaded_at_field: _batched_at
           freshness: 
@@ -13,5 +14,3 @@ sources:
             error_after: 
               count: 24
               period: hour
-            
-            

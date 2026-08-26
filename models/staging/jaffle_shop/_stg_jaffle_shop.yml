@@ -1,18 +1,18 @@
 models:
   - name: stg_jaffle_shop__customers
-    description: one unique customer per row
+    description: Staged customer data from our jaffle shop app, one unique customer per row.
     columns:
       - name: customer_id
-        description: primary key
+        description: The primary key for customers.
         data_tests:
           - unique
           - not_null
 
   - name: stg_jaffle_shop__orders
-    description: one unique order per row
+    description: Staged order data from our jaffle shop app, one unique order per row.
     columns:
       - name: order_id
-        description: primary key
+        description: Primary key for orders.
         data_tests:
           - unique
           - not_null
