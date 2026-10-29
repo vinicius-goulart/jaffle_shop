@@ -10,3 +10,13 @@ macros:
       - name: decimals
         type: integer
         description: "The nunber of decimal places to round the output to (default: 2)"
+  
+  - name: grant_select
+    description: "Grants SELECT permissions on all tables and views in a specified schema to a target role or user."
+    arguments:
+      - name: schema
+        type: string
+        description: "The target schema where SELECT permissions will be granted (defaults to the active target schema)."
+      - name: role
+        type: string
+        description: "The database role or user receiving the SELECT permissions."
